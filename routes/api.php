@@ -22,6 +22,11 @@ Route::put("admin-update/{id}", [AdminController::class, 'update']);
 Route::delete('admin-destroy/{id}', [AdminController::class, 'destroy']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+    Route::get('/', [AdminController::class, 'index']);
+    Route::post("create-admin", [AdminController::class, 'store']);
+    Route::get("admin/{id}", [AdminController::class, 'show']);
+    Route::put("admin-update/{id}", [AdminController::class, 'update']);
+    Route::delete('admin-destroy/{id}', [AdminController::class, 'destroy']);
 });
 

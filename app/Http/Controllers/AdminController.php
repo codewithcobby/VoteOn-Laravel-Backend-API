@@ -33,11 +33,12 @@ class AdminController extends Controller
 
         $passwordHash = password_hash($request->password, PASSWORD_DEFAULT);
 
-        Admin::create([
+        $admin = Admin::create([
             'admin_id' => $request->admin_id,
             'name' => $request->name,
             'password' => $passwordHash
         ]);
+
 
         return "Admin created";
     }
